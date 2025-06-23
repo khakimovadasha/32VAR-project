@@ -1,0 +1,83 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:utils="clr-namespace:MY_PROJ32VAR.Utils">
+    <!-- Цвета -->
+    <Color x:Key="PrimaryBlue">#2196F3</Color>
+    <Color x:Key="AccentYellow">#FFD600</Color>
+    <Color x:Key="AccentGreen">#4CAF50</Color>
+    <Color x:Key="InactiveGray">#E0E0E0</Color>
+    <Color x:Key="BorderGray">#BDBDBD</Color>
+    <Color x:Key="White">#FFFFFF</Color>
+    <Color x:Key="ErrorRed">#FF5252</Color>
+
+    <!-- Кисти -->
+    <SolidColorBrush x:Key="PrimaryBlueBrush" Color="{StaticResource PrimaryBlue}"/>
+    <SolidColorBrush x:Key="AccentYellowBrush" Color="{StaticResource AccentYellow}"/>
+    <SolidColorBrush x:Key="AccentGreenBrush" Color="{StaticResource AccentGreen}"/>
+    <SolidColorBrush x:Key="InactiveGrayBrush" Color="{StaticResource InactiveGray}"/>
+    <SolidColorBrush x:Key="BorderGrayBrush" Color="{StaticResource BorderGray}"/>
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
+    <SolidColorBrush x:Key="ErrorRedBrush" Color="{StaticResource ErrorRed}"/>
+
+    <!-- Стиль кнопки -->
+    <Style x:Key="PrimaryButton" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource PrimaryBlueBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryBlueBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="10,4"/>
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="4" ShadowDepth="0" Color="#22000000"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" 
+                            CornerRadius="16" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Стиль неактивной кнопки -->
+    <Style x:Key="InactiveButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+        <Setter Property="Background" Value="{StaticResource InactiveGrayBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+    </Style>
+
+    <!-- Стиль зелёной кнопки -->
+    <Style x:Key="GreenButton" TargetType="Button" BasedOn="{StaticResource PrimaryButton}">
+        <Setter Property="Background" Value="{StaticResource AccentGreenBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource AccentGreenBrush}"/>
+    </Style>
+
+    <!-- Стиль заголовка -->
+    <Style x:Key="HeaderText" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="{StaticResource PrimaryBlueBrush}"/>
+        <Setter Property="Margin" Value="0,0,0,8"/>
+    </Style>
+
+    <!-- Стиль для закругленных панелей -->
+    <Style x:Key="RoundedPanel" TargetType="Border">
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="12"/>
+        <Setter Property="Margin" Value="8"/>
+    </Style>
+
+    <utils:ResultToBrushConverter x:Key="ResultToBrushConverter" />
+</ResourceDictionary> 
